@@ -1,20 +1,20 @@
 provider "google" {
   credentials = file("/home/crow/.terraform.d/credentials.tfrc.json")
   project     = "solid-idiom-327007"
-  region      = "europe-west4"
-  zone        = "europe-west4-a"
+  region      = var.region
+  zone        = var.zone
 }
 
 resource "google_compute_instance" "default" {
   name         = "test"
   machine_type = "e2-micro"
-  zone         = "europe-west4-a"
+  zone         = var.zone
 
   tags = ["foo", "bar"]
 
   boot_disk {
     initialize_params {
-      image = "centos-cloud/centos-8"
+      image = var.image
     }
   }
   network_interface {
