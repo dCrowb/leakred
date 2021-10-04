@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "3.5.0"
-    }
-  }
-}
-
 provider "google" {
   credentials = file("/home/crow/.terraform.d/credentials.tfrc.json")
   project     = "solid-idiom-327007"
