@@ -9,8 +9,8 @@ resource "google_compute_instance" "default" {
   name         = "test"
   machine_type = "e2-micro"
   zone         = var.zone
-
-  tags = ["foo", "bar"]
+  count        = 5
+  tags         = ["foo", "bar"]
 
   boot_disk {
     initialize_params {
